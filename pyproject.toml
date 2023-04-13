@@ -20,7 +20,23 @@ sshtunnel = "^0.4.0"
 torch = "^1.13.1"
 transformers = "^4.26.1"
 
+[tool.poetry.group.dev.dependencies]
+black = "^23.1.0"
+pre-commit = "^3.1.1"
+mypy = "^1.1.1"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+check_untyped_defs="True"
+disallow_untyped_defs = true
+show_error_codes = true
+no_implicit_optional = true
+warn_return_any = true
+warn_unused_ignores = true
+exclude = ["data", "dataset", "outputs", "runs","wandb"]
+
+[tool.black]
+line-length = 88
